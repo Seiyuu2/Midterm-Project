@@ -1,0 +1,45 @@
+.add-item-container {
+  max-width: 400px; /* Limit the width of the form */
+  margin: 20px auto; /* Center the container */
+  padding: 20px;
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #f9f9f9; /* Light background */
+}
+
+.add-item-form {
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
+}
+
+.add-item-input,
+.add-item-select,
+.add-item-button {
+  margin-bottom: 10px; /* Space between elements */
+  padding: 10px;
+  border: 1px solid #ccc; /* Light gray border for inputs */
+  border-radius: 4px; /* Rounded corners for inputs */
+}
+
+.add-item-input:focus,
+.add-item-select:focus {
+  border-color: royalblue; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+.add-item-button {
+  background-color: royalblue; /* Button color */
+  color: white; /* Button text color */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.add-item-button:hover {
+  background-color: #1a73e8; /* Darker blue on hover */
+}
+
+.add-item-message {
+  margin-top: 10px; /* Space above message */
+  color: green; /* Success message color */
+}
