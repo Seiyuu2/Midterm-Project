@@ -1,19 +1,28 @@
 import React, { useState } from 'react';
 import './styles/AddItem.css'; // Import the CSS file for styles
+import { useNavigate } from 'react-router-dom';
 
-const AddItem = ({ addItem }) => {
+const AddItem = ({ addItem, items }) => { // Pass `items` prop for validation
   const [id, setId] = useState('');
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('Clothing');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate(); // Use navigate for going back
 
   const handleAddItem = (e) => {
     e.preventDefault();
-    if (id && name && quantity && price) {
+
+    // Check if the ID already exists in the items list
+    const idExists = items.some(item => item.id === id);
+
+    if (idExists) {
+      setMessage('Item ID already exists. Please use a unique ID.');
+    } else if (id && name && quantity && price) {
       addItem({ id, name, quantity: parseInt(quantity), price: parseFloat(price), category });
       setMessage('Item added successfully!');
+      
       // Clear form after adding
       setId('');
       setName('');
@@ -69,6 +78,9 @@ const AddItem = ({ addItem }) => {
         <button type="submit" className="add-item-button">Add Item</button>
       </form>
       {message && <p className="add-item-message">{message}</p>}
+
+      {/* Back to Dashboard button */}
+      <button onClick={() => navigate('/')}>Back to Dashboard</button>
     </div>
   );
 };

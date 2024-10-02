@@ -9,6 +9,7 @@ import DisplayItems from './components/DisplayItems';
 import SearchItem from './components/SearchItem';
 import SortItems from './components/SortItems';
 import DisplayLowStock from './components/DisplayLowStock';
+import DisplayItemsByCategory from './components/DisplayItemsByCategory'; // Import DisplayItemsByCategory
 import './App.css';
 
 const App = () => {
@@ -41,10 +42,11 @@ const App = () => {
       <div className="App">
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/add-item" element={<AddItem addItem={addItem} />} />
+          <Route path="/add-item" element={<AddItem addItem={addItem} items={items} />} /> {/* Pass items */}
           <Route path="/remove-item" element={<RemoveItem removeItem={removeItem} />} />
           <Route path="/update-item" element={<UpdateItem updateItem={updateItem} />} />
           <Route path="/display-all-items" element={<DisplayItems items={items} />} />
+          <Route path="/display-items-category" element={<DisplayItemsByCategory items={items} />} /> {/* Add this */}
           <Route path="/search-item" element={<SearchItem items={items} />} />
           <Route path="/sort-items" element={<SortItems items={items} />} />
           <Route path="/low-stock-items" element={<DisplayLowStock items={items} />} />

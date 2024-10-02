@@ -1,0 +1,68 @@
+/* General container styles for all components */
+.container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+/* General form styles */
+.form {
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
+}
+
+.input,
+.select,
+.button {
+  margin-bottom: 10px; /* Space between elements */
+  padding: 10px;
+  border: 1px solid #ccc; /* Light gray border for inputs */
+  border-radius: 4px; /* Rounded corners for inputs */
+}
+
+.input:focus,
+.select:focus {
+  border-color: royalblue; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+.button {
+  background-color: royalblue; /* Button color */
+  color: white; /* Button text color */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.button:hover {
+  background-color: #1a73e8; /* Darker blue on hover */
+}
+
+.message {
+  margin-top: 10px; /* Space above message */
+  color: green; /* Success message color */
+}
+
+/* Additional styles for tables (DisplayItemsByCategory) */
+.table {
+  width: 100%;
+  border-collapse: collapse; /* Remove gaps between table cells */
+  margin-top: 20px;
+}
+
+.table th, .table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f1f1f1;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
