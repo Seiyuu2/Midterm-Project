@@ -1,4 +1,3 @@
-// SortItems.js
 import React, { useState } from 'react';
 
 const SortItems = ({ items }) => {

@@ -1,4 +1,3 @@
-// SearchItem.js
 import React, { useState } from 'react';
 
 const SearchItem = ({ items }) => {

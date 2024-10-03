@@ -1,4 +1,3 @@
-// DisplayLowStock.js
 import React from 'react';
 
 const DisplayLowStock = ({ items }) => {
