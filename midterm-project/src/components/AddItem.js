@@ -7,7 +7,7 @@ const AddItem = ({ addItem, items }) => { // Pass `items` prop for validation
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
   const [price, setPrice] = useState('');
-  const [category, setCategory] = useState('Clothing');
+  const [category, setCategory] = useState(''); // Set to empty initially
   const [message, setMessage] = useState('');
   const navigate = useNavigate(); // Use navigate for going back
 
@@ -19,7 +19,7 @@ const AddItem = ({ addItem, items }) => { // Pass `items` prop for validation
 
     if (idExists) {
       setMessage('Item ID already exists. Please use a unique ID.');
-    } else if (id && name && quantity && price) {
+    } else if (id && name && quantity && price && category) { // Ensure category is selected
       addItem({ id, name, quantity: parseInt(quantity), price: parseFloat(price), category });
       setMessage('Item added successfully!');
       
@@ -28,7 +28,7 @@ const AddItem = ({ addItem, items }) => { // Pass `items` prop for validation
       setName('');
       setQuantity('');
       setPrice('');
-      setCategory('Clothing');
+      setCategory('');
     } else {
       setMessage('Please fill out all fields!');
     }
@@ -70,7 +70,13 @@ const AddItem = ({ addItem, items }) => { // Pass `items` prop for validation
           required
           className="add-item-input"
         />
-        <select value={category} onChange={(e) => setCategory(e.target.value)} className="add-item-select">
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          required
+          className="add-item-select"
+        >
+          <option value="" disabled>-Select category-</option> {/* Placeholder option */}
           <option value="Clothing">Clothing</option>
           <option value="Electronics">Electronics</option>
           <option value="Entertainment">Entertainment</option>

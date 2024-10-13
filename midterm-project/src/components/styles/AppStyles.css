@@ -1,68 +1,84 @@
 /* General container styles for all components */
 .container {
-  max-width: 400px;
+  max-width: 500px;
   margin: 20px auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
+  background-color: #ffffff;
 }
 
 /* General form styles */
 .form {
   display: flex;
-  flex-direction: column; /* Stack form elements vertically */
+  flex-direction: column;
 }
 
 .input,
 .select,
 .button {
-  margin-bottom: 10px; /* Space between elements */
+  margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #ccc; /* Light gray border for inputs */
-  border-radius: 4px; /* Rounded corners for inputs */
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .input:focus,
 .select:focus {
-  border-color: royalblue; /* Change border color on focus */
-  outline: none; /* Remove default outline */
+  border-color: royalblue;
+  outline: none;
+}
+
+.label {
+  margin-bottom: 5px;
+  color: #333;
 }
 
 .button {
-  background-color: royalblue; /* Button color */
-  color: white; /* Button text color */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s; /* Smooth background color transition */
+  background-color: royalblue;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .button:hover {
-  background-color: #1a73e8; /* Darker blue on hover */
+  background-color: #1a73e8;
 }
 
 .message {
-  margin-top: 10px; /* Space above message */
-  color: green; /* Success message color */
+  margin-top: 10px;
+  color: #d9534f;
 }
 
-/* Additional styles for tables (DisplayItemsByCategory) */
+/* Table styles */
 .table {
   width: 100%;
-  border-collapse: collapse; /* Remove gaps between table cells */
+  border-collapse: collapse;
   margin-top: 20px;
+  background-color: #ffffff; /* Ensure the table background is white */
 }
 
 .table th, .table td {
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   padding: 10px;
   text-align: left;
 }
 
 .table th {
-  background-color: #f1f1f1;
+  background-color: #f1f1f1; /* Light gray for table headers */
+  color: #000; /* Black text in the header */
 }
 
-.table tr:nth-child(even) {
-  background-color: #f9f9f9;
+.table td {
+  background-color: #ffffff; /* Set white as default background for table cells */
+  color: #000; /* Black text in cells */
+}
+
+.table tr:nth-child(even) td {
+  background-color: #f9f9f9; /* Light gray for even rows */
+}
+
+.table tr:nth-child(odd) td {
+  background-color: #ffffff; /* White for odd rows */
 }

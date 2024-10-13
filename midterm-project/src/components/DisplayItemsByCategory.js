@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './styles/AppStyles.css'; // Ensure the correct CSS file is imported
 
 const DisplayItemsByCategory = ({ items }) => {
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -13,10 +14,15 @@ const DisplayItemsByCategory = ({ items }) => {
   };
 
   return (
-    <div className="display-items-category-container">
+    <div className="container">
       <h2>Display Items by Category</h2>
-      <label htmlFor="category">Select Category:</label>
-      <select id="category" value={selectedCategory} onChange={handleCategoryChange}>
+      <label htmlFor="category" className="label">Select Category:</label>
+      <select
+        id="category"
+        value={selectedCategory}
+        onChange={handleCategoryChange}
+        className="select"
+      >
         <option value="">--Select a Category--</option>
         <option value="Clothing">Clothing</option>
         <option value="Electronics">Electronics</option>
@@ -24,7 +30,7 @@ const DisplayItemsByCategory = ({ items }) => {
       </select>
 
       {filteredItems.length > 0 ? (
-        <table>
+        <table className="table">
           <thead>
             <tr>
               <th>ID</th>
@@ -45,13 +51,13 @@ const DisplayItemsByCategory = ({ items }) => {
           </tbody>
         </table>
       ) : selectedCategory ? (
-        <p>No items found in the selected category.</p>
+        <p className="message">No items found in the selected category.</p>
       ) : (
-        <p>Please select a category to display items.</p>
+        <p className="message">Please select a category to display items.</p>
       )}
 
       {/* Back to Dashboard button */}
-      <button onClick={() => navigate('/')}>Back to Dashboard</button>
+      <button onClick={() => navigate('/')} className="button">Back to Dashboard</button>
     </div>
   );
 };
