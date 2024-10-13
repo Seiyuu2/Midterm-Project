@@ -1,11 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import './styles/AppStyles.css'; // Ensure the correct CSS file is imported
 
 const DisplayItems = ({ items }) => {
+  const navigate = useNavigate();
+
   return (
-    <div>
+    <div className="container">
       <h2>All Inventory Items</h2>
       {items.length > 0 ? (
-        <table>
+        <table className="table">
           <thead>
             <tr>
               <th>ID</th>
@@ -28,8 +32,11 @@ const DisplayItems = ({ items }) => {
           </tbody>
         </table>
       ) : (
-        <p>No items in inventory.</p>
+        <p className="message">No items in inventory.</p>
       )}
+
+      {/* Back to Dashboard button */}
+      <button onClick={() => navigate('/')} className="button">Back to Dashboard</button>
     </div>
   );
 };

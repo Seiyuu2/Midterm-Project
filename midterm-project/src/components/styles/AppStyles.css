@@ -56,23 +56,17 @@
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  background-color: #ffffff; /* Ensure the table background is white */
 }
 
 .table th, .table td {
   border: 1px solid #ddd;
   padding: 10px;
   text-align: left;
+  color: #000; /* Ensure all table text is black */
 }
 
 .table th {
-  background-color: #f1f1f1; /* Light gray for table headers */
-  color: #000; /* Black text in the header */
-}
-
-.table td {
-  background-color: #ffffff; /* Set white as default background for table cells */
-  color: #000; /* Black text in cells */
+  background-color: #f1f1f1; /* Light gray background for headers */
 }
 
 .table tr:nth-child(even) td {
@@ -81,4 +75,15 @@
 
 .table tr:nth-child(odd) td {
   background-color: #ffffff; /* White for odd rows */
+}
+
+
+/* Return to Dashboard Button */
+.return-button {
+  margin-top: 20px; /* Add some space from the content above */
+  background-color: #6c757d; /* A neutral gray color */
+}
+
+.return-button:hover {
+  background-color: #5a6268; /* Darker gray for hover */
 }

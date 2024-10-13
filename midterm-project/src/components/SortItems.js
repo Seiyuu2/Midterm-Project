@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import navigate function
+import './styles/AppStyles.css'; // Assuming this CSS already contains the necessary styles
 
 const SortItems = ({ items }) => {
-  const [sortBy, setSortBy] = useState('quantity'); // default sorting by quantity
-  const [order, setOrder] = useState('ascending'); // default order is ascending
+  const [sortBy, setSortBy] = useState('quantity');
+  const [order, setOrder] = useState('ascending');
   const [sortedItems, setSortedItems] = useState([]);
+  const navigate = useNavigate(); // Use navigate for going back
 
   const handleSort = (e) => {
     e.preventDefault();
@@ -18,28 +21,24 @@ const SortItems = ({ items }) => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Sort Items</h2>
-      <form onSubmit={handleSort}>
-        <label>
-          Sort By:
-          <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-            <option value="quantity">Quantity</option>
-            <option value="price">Price</option>
-          </select>
-        </label>
-        <label>
-          Order:
-          <select value={order} onChange={(e) => setOrder(e.target.value)}>
-            <option value="ascending">Ascending</option>
-            <option value="descending">Descending</option>
-          </select>
-        </label>
-        <button type="submit">Sort</button>
+      <form onSubmit={handleSort} className="form">
+        <label className="label">Sort By:</label>
+        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="select">
+          <option value="quantity">Quantity</option>
+          <option value="price">Price</option>
+        </select>
+        <label className="label">Order:</label>
+        <select value={order} onChange={(e) => setOrder(e.target.value)} className="select">
+          <option value="ascending">Ascending</option>
+          <option value="descending">Descending</option>
+        </select>
+        <button type="submit" className="button">Sort</button>
       </form>
 
       {sortedItems.length > 0 && (
-        <table>
+        <table className="table">
           <thead>
             <tr>
               <th>ID</th>
@@ -62,6 +61,11 @@ const SortItems = ({ items }) => {
           </tbody>
         </table>
       )}
+      
+      {/* Back to Dashboard button */}
+      <button onClick={() => navigate('/')} className="button">
+        Back to Dashboard
+      </button>
     </div>
   );
 };

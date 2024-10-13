@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import navigate function
+import './styles/AppStyles.css'; // Assuming this CSS already contains the necessary styles
 
 const SearchItem = ({ items }) => {
   const [id, setId] = useState('');
   const [foundItem, setFoundItem] = useState(null);
   const [message, setMessage] = useState('');
+  const navigate = useNavigate(); // Use navigate for going back
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -18,19 +21,20 @@ const SearchItem = ({ items }) => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Search Item</h2>
-      <form onSubmit={handleSearch}>
+      <form onSubmit={handleSearch} className="form">
         <input
           type="text"
           value={id}
           onChange={(e) => setId(e.target.value)}
           placeholder="Item ID"
           required
+          className="input"
         />
-        <button type="submit">Search</button>
+        <button type="submit" className="button">Search</button>
       </form>
-      {message && <p>{message}</p>}
+      {message && <p className="message">{message}</p>}
       {foundItem && (
         <div>
           <h3>Item Details:</h3>
@@ -41,6 +45,11 @@ const SearchItem = ({ items }) => {
           <p>Category: {foundItem.category}</p>
         </div>
       )}
+
+      {/* Back to Dashboard button */}
+      <button onClick={() => navigate('/')} className="button">
+        Back to Dashboard
+      </button>
     </div>
   );
 };

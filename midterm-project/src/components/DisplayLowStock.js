@@ -1,13 +1,16 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import navigate function
+import './styles/AppStyles.css'; // Assuming this CSS already contains the necessary styles
 
 const DisplayLowStock = ({ items }) => {
   const lowStockItems = items.filter((item) => item.quantity <= 5);
+  const navigate = useNavigate(); // Use navigate for going back
 
   return (
-    <div>
+    <div className="container">
       <h2>Low Stock Items</h2>
       {lowStockItems.length > 0 ? (
-        <table>
+        <table className="table">
           <thead>
             <tr>
               <th>ID</th>
@@ -30,8 +33,13 @@ const DisplayLowStock = ({ items }) => {
           </tbody>
         </table>
       ) : (
-        <p>No low stock items.</p>
+        <p className="message">No low stock items.</p>
       )}
+      
+      {/* Back to Dashboard button */}
+      <button onClick={() => navigate('/')} className="button">
+        Back to Dashboard
+      </button>
     </div>
   );
 };
