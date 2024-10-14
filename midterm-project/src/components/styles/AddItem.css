@@ -1,11 +1,43 @@
-.add-item-container {
-  max-width: 400px; /* Limit the width of the form */
-  margin: 20px auto; /* Center the container */
+html, body {
+  height: 100%; /* Full viewport height */
+  
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  background-image: url('forest.jpg'); /* Background image */
+  background-size: cover; /* Ensures the image covers the entire page */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Optional: for a parallax effect */
+  font-family: Arial, sans-serif; /* Apply font style to the entire page */
+  color: white; /* Set default text color */
+}
+
+/* Ensure content in each section is visible and clear over the background */
+.container, .add-item-container {
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent container background */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 80px auto; /* Vertically center with some top space */
   padding: 20px;
-  border: 1px solid #ccc; /* Light gray border */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  background-color: #f9f9f9; /* Light background */
+  max-width: 500px; /* Set a maximum width for a cleaner layout */
+  position: relative; /* Needed for overlay positioning */
+}
+
+/* Removed the background image and styling from .add-item-container */
+.add-item-container {
+  background-color: rgba(0, 0, 0, 0.6); /* Same black transparent background */
+}
+
+.add-item-container::before {
+  content: ""; /* Empty content */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  border-radius: 8px; /* Same border-radius as container */
+  z-index: -1; /* Keeps overlay behind content */
 }
 
 .add-item-form {
@@ -43,5 +75,4 @@
   margin-top: 10px; /* Space above message */
   color: green; /* Success message color */
 }
-
 
