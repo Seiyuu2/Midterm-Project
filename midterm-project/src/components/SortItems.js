@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import navigate function
-import './styles/AppStyles.css'; // Assuming this CSS already contains the necessary styles
+import { useNavigate } from 'react-router-dom'; 
+import './styles/AppStyles.css'; 
 
 const SortItems = ({ items }) => {
   const [sortBy, setSortBy] = useState('quantity');
   const [order, setOrder] = useState('ascending');
   const [sortedItems, setSortedItems] = useState([]);
-  const navigate = useNavigate(); // Use navigate for going back
+  const navigate = useNavigate(); 
 
   const handleSort = (e) => {
     e.preventDefault();

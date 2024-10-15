@@ -8,7 +8,7 @@ import DisplayItems from './components/DisplayItems';
 import SearchItem from './components/SearchItem';
 import SortItems from './components/SortItems';
 import DisplayLowStock from './components/DisplayLowStock';
-import DisplayItemsByCategory from './components/DisplayItemsByCategory'; // Import DisplayItemsByCategory
+import DisplayItemsByCategory from './components/DisplayItemsByCategory';
 import './App.css';
 
 const App = () => {
@@ -42,8 +42,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/add-item" element={<AddItem addItem={addItem} items={items} />} /> {/* Pass items */}
-          <Route path="/remove-item" element={<RemoveItem removeItem={removeItem} />} />
-          <Route path="/update-item" element={<UpdateItem updateItem={updateItem} />} />
+          <Route path="/remove-item" element={<RemoveItem removeItem={removeItem} items={items}/>} />
+          <Route path="/update-item" element={<UpdateItem updateItem={updateItem} items={items} />} />
           <Route path="/display-all-items" element={<DisplayItems items={items} />} />
           <Route path="/display-items-category" element={<DisplayItemsByCategory items={items} />} /> {/* Add this */}
           <Route path="/search-item" element={<SearchItem items={items} />} />

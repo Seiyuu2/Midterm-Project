@@ -1,25 +1,55 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import navigate function
-import './styles/AppStyles.css'; // Assuming this CSS already contains the necessary styles
+import './styles/AppStyles.css'; 
 
-const UpdateItem = ({ updateItem }) => {
+const UpdateItem = ({ updateItem, items }) => {
   const [id, setId] = useState('');
   const [field, setField] = useState('quantity'); // either 'quantity' or 'price'
   const [newValue, setNewValue] = useState('');
   const [message, setMessage] = useState('');
-  const navigate = useNavigate(); // Use navigate for going back
+  const navigate = useNavigate(); 
 
   const handleUpdateItem = (e) => {
     e.preventDefault();
-    const result = updateItem(id, field, newValue);
-    if (result) {
-      setMessage(`Item ${field} updated successfully!`);
+  
+    // Negative calidation
+    if (newValue < 0) {
+      setMessage('New value cannot be negative!');
+      return;
+    }
+  
+    // Decimal validation
+    if (!Number.isInteger(Number(newValue))) {
+      setMessage('New value must be a whole number!');
+      return;
+    }
+  
+    // Find the item based on ID
+    const targetItem = items.find(item => item.id === id);
+  
+    if (targetItem) {
+      // Copy previous value based on "Field", used later for message
+      const previous = targetItem[field.toLowerCase()];
+      const itemName = targetItem.name; // Assuming each item has a 'name' property
+  
+      // update value
+      const result = updateItem(id, field, newValue);
+      if (result) {
+        // Display submition/edit message
+        setMessage(`Item ${itemName} ${field} is updated from ${previous} to ${newValue}`);
+      } else {
+        setMessage('Update failed!');
+      }
     } else {
       setMessage('Item not found!');
     }
+  
+    // Reset 
     setId('');
     setNewValue('');
   };
+  
+    
 
   return (
     <div className="container">

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './styles/AppStyles.css'; // Ensure the correct CSS file is imported
+import './styles/AppStyles.css'; 
 
 const DisplayItemsByCategory = ({ items }) => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [filteredItems, setFilteredItems] = useState([]);
-  const navigate = useNavigate();  // Use navigate for going back
+  const navigate = useNavigate();  
 
   const handleCategoryChange = (event) => {
     const category = event.target.value;

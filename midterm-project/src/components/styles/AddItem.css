@@ -1,78 +1,74 @@
 html, body {
-  height: 100%; /* Full viewport height */
-  
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-  background-image: url('forest.jpg'); /* Background image */
-  background-size: cover; /* Ensures the image covers the entire page */
-  background-position: center; /* Centers the image */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  background-attachment: fixed; /* Optional: for a parallax effect */
-  font-family: Arial, sans-serif; /* Apply font style to the entire page */
-  color: white; /* Set default text color */
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: url('forest.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+  color: white;
 }
 
-/* Ensure content in each section is visible and clear over the background */
 .container, .add-item-container {
-  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent container background */
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin: 80px auto; /* Vertically center with some top space */
+  margin: 80px auto;
   padding: 20px;
-  max-width: 500px; /* Set a maximum width for a cleaner layout */
-  position: relative; /* Needed for overlay positioning */
+  max-width: 500px;
+  position: relative;
 }
 
-/* Removed the background image and styling from .add-item-container */
 .add-item-container {
-  background-color: rgba(0, 0, 0, 0.6); /* Same black transparent background */
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .add-item-container::before {
-  content: ""; /* Empty content */
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
-  border-radius: 8px; /* Same border-radius as container */
-  z-index: -1; /* Keeps overlay behind content */
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  z-index: -1;
 }
 
 .add-item-form {
   display: flex;
-  flex-direction: column; /* Stack form elements vertically */
+  flex-direction: column;
 }
 
 .add-item-input,
 .add-item-select,
 .add-item-button {
-  margin-bottom: 10px; /* Space between elements */
+  margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #ccc; /* Light gray border for inputs */
-  border-radius: 4px; /* Rounded corners for inputs */
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .add-item-input:focus,
 .add-item-select:focus {
-  border-color: royalblue; /* Change border color on focus */
-  outline: none; /* Remove default outline */
+  border-color: royalblue;
+  outline: none;
 }
 
 .add-item-button {
-  background-color: royalblue; /* Button color */
-  color: white; /* Button text color */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s; /* Smooth background color transition */
+  background-color: royalblue;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .add-item-button:hover {
-  background-color: #1a73e8; /* Darker blue on hover */
+  background-color: #1a73e8;
 }
 
 .add-item-message {
-  margin-top: 10px; /* Space above message */
-  color: green; /* Success message color */
+  margin-top: 10px;
+  color: green;
 }
-

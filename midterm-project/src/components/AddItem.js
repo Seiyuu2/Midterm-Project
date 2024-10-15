@@ -1,36 +1,44 @@
 import React, { useState } from 'react';
-import './styles/AddItem.css'; // Import the CSS file for styles
+import './styles/AddItem.css'; 
 import { useNavigate } from 'react-router-dom';
 
-const AddItem = ({ addItem, items }) => { // Pass `items` prop for validation
+const AddItem = ({ addItem, items }) => { // Pass `items` for validation (duplicate)
   const [id, setId] = useState('');
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
   const [price, setPrice] = useState('');
-  const [category, setCategory] = useState(''); // Set to empty initially
+  const [category, setCategory] = useState(''); 
   const [message, setMessage] = useState('');
-  const navigate = useNavigate(); // Use navigate for going back
+  const navigate = useNavigate(); 
 
   const handleAddItem = (e) => {
     e.preventDefault();
 
-    // Check if the ID already exists in the items list
+    // ID duplicate check
     const idExists = items.some(item => item.id === id);
+
+    // Validation, No Negative, no decimal, all fields filled.
+    const parsedQuantity = parseInt(quantity);
+    const parsedPrice = parseFloat(price);
 
     if (idExists) {
       setMessage('Item ID already exists. Please use a unique ID.');
-    } else if (id && name && quantity && price && category) { // Ensure category is selected
-      addItem({ id, name, quantity: parseInt(quantity), price: parseFloat(price), category });
+    } else if (!id || !name || !quantity || !price || !category) { // Ensure all fields are filled
+      setMessage('Please fill out all fields!');
+    } else if (parsedQuantity <= 0 || !Number.isInteger(parsedQuantity)) {
+      setMessage('Quantity must be a positive whole number.');
+    } else if (parsedPrice <= 0 || !Number.isInteger(parsedPrice)) {
+      setMessage('Price must be a positive whole number (no decimals).');
+    } else {
+      addItem({ id, name, quantity: parsedQuantity, price: parsedPrice, category });
       setMessage('Item added successfully!');
       
-      // Clear form after adding
+      // Clear form after submit
       setId('');
       setName('');
       setQuantity('');
       setPrice('');
       setCategory('');
-    } else {
-      setMessage('Please fill out all fields!');
     }
   };
 
@@ -76,7 +84,7 @@ const AddItem = ({ addItem, items }) => { // Pass `items` prop for validation
           required
           className="add-item-select"
         >
-          <option value="" disabled>-Select category-</option> {/* Placeholder option */}
+          <option value="" disabled>-Select category-</option> {/* Placeholder */}
           <option value="Clothing">Clothing</option>
           <option value="Electronics">Electronics</option>
           <option value="Entertainment">Entertainment</option>

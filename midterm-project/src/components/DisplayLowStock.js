@@ -1,10 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import navigate function
-import './styles/AppStyles.css'; // Assuming this CSS already contains the necessary styles
+import { useNavigate } from 'react-router-dom'; 
+import './styles/AppStyles.css'; 
 
 const DisplayLowStock = ({ items }) => {
   const lowStockItems = items.filter((item) => item.quantity <= 5);
-  const navigate = useNavigate(); // Use navigate for going back
+  const navigate = useNavigate();
 
   return (
     <div className="container">
