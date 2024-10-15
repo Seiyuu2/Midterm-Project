@@ -2,15 +2,32 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/AppStyles.css';
 
-const RemoveItem = ({ removeItem }) => {
+const RemoveItem = ({ removeItem, items }) => {
   const [id, setId] = useState('');
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
   const handleRemoveItem = (e) => {
     e.preventDefault();
-    const result = removeItem(id);
-    setMessage(result ? `Item with ID ${id} has been removed.` : 'Item not found!');
+
+    // Find the item based on the ID
+    const targetItem = items.find(item => item.id === id);
+
+    if (targetItem) {
+      const itemName = targetItem.name; // Assuming each item has a 'name' property
+
+      // BEGONE SPAWN OF DARKNESS (removal)
+      const result = removeItem(id);
+      if (result) {
+        setMessage(`Item ${itemName} has been removed from the inventory.`);
+      } else {
+        setMessage('Remove operation failed!');
+      }
+    } else {
+      setMessage('Item not found!');
+    }
+
+    // Reset 
     setId('');
   };
 
@@ -32,7 +49,7 @@ const RemoveItem = ({ removeItem }) => {
       </form>
       {message && <p className="message">{message}</p>}
 
-      {/* Back to Dashboard button */}
+      {/* Back to Dashboard */}
       <button onClick={() => navigate('/')} className="button">
         Back to Dashboard
       </button>

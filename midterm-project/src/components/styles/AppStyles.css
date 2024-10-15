@@ -1,15 +1,13 @@
-/* General container styles for all components */
 .container {
   max-width: 500px;
-  margin: 280px auto; /* Adjust the top and bottom margins to bring it closer to the center of the page */
+  margin: 280px auto;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.6); /* Black transparent background */
-  position: relative; /* Needed for overlay positioning */
+  background-color: rgba(0, 0, 0, 0.6);
+  position: relative;
 }
 
-/* General form styles */
 .form {
   display: flex;
   flex-direction: column;
@@ -32,7 +30,7 @@
 
 .label {
   margin-bottom: 5px;
-  color: #ccc; /* Lighter text for better contrast */
+  color: #ccc;
 }
 
 .button {
@@ -48,10 +46,9 @@
 
 .message {
   margin-top: 10px;
-  color: #d9534f; /* Red for error or message */
+  color: #d9534f;
 }
 
-/* Table styles */
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -62,27 +59,26 @@
   border: 1px solid #ddd;
   padding: 10px;
   text-align: left;
-  color: #000; /* Ensure all table text is black */
+  color: #000;
 }
 
 .table th {
-  background-color: #f1f1f1; /* Light gray background for headers */
+  background-color: #f1f1f1;
 }
 
 .table tr:nth-child(even) td {
-  background-color: #f9f9f9; /* Light gray for even rows */
+  background-color: #f9f9f9;
 }
 
 .table tr:nth-child(odd) td {
-  background-color: #ffffff; /* White for odd rows */
+  background-color: #ffffff;
 }
 
-/* Return to Dashboard Button */
 .return-button {
-  margin-top: 20px; /* Add some space from the content above */
-  background-color: #6c757d; /* A neutral gray color */
+  margin-top: 20px;
+  background-color: #6c757d;
 }
 
 .return-button:hover {
-  background-color: #5a6268; /* Darker gray for hover */
+  background-color: #5a6268;
 }

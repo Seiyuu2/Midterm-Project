@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './styles/AppStyles.css'; // Ensure the correct CSS file is imported
+import './styles/AppStyles.css'; 
 
 const DisplayItems = ({ items }) => {
   const navigate = useNavigate();

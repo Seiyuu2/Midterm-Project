@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import navigate function
-import './styles/AppStyles.css'; // Assuming this CSS already contains the necessary styles
+import { useNavigate } from 'react-router-dom'; 
+import './styles/AppStyles.css'; 
 
 const SearchItem = ({ items }) => {
   const [id, setId] = useState('');
   const [foundItem, setFoundItem] = useState(null);
   const [message, setMessage] = useState('');
-  const navigate = useNavigate(); // Use navigate for going back
+  const navigate = useNavigate(); 
 
   const handleSearch = (e) => {
     e.preventDefault();
