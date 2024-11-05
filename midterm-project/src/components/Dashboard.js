@@ -1,3 +1,4 @@
+// ID duplicate check// ID duplicate check// ID duplicate check
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/DashboardStyles.css';
@@ -8,7 +9,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <div className="dashboard-content">
-        <h1>Inventory Management Dashboard</h1>
+        <h1>Inventory Management DashboardSONARTEST</h1>
         <div className="buttons-container">
           <button onClick={() => navigate('/add-item')} className="dashboard-button">Add Item</button>
           <button onClick={() => navigate('/update-item')} className="dashboard-button">Update Item</button>
@@ -25,3 +26,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
