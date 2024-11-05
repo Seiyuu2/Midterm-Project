@@ -6,7 +6,6 @@ on:
       - Main
 
 
-
 jobs:
   build:
     name: Build and analyze
